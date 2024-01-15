@@ -1,0 +1,78 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Catalog</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/catalog.css' %}">
+{% endblock meta %}
+
+{% block content%}
+    {% include 'common/navbar.html' %}
+    <div id='catalog-div'>
+        <div id='catalog-text-div'>
+            <h1>Choose Your Kingdom</h1>
+        </div>
+        <div class="row row-cols-2 row-cols-md-3 g-4">
+            <a href="{% url 'main:homepage' %}">
+                <div class="col">
+                    <div class="card text-bg-dark" id="catalog-img-container">
+                        <img src="https://www.cnet.com/a/img/resize/441fa7ebd15125004a9cd63c16b71ff902f2f63b/hub/2022/04/18/d7bd0c08-381f-4800-9330-3836cb152ffd/gettyimages-1201440711.jpg?auto=webp&fit=crop&height=675&width=1200" class="card-img" alt="...">
+                        <div class="card-img-overlay">
+                        <h3 class="card-title">Monera</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'main:homepage' %}">
+                <div class="col">
+                    <div class="card text-bg-dark" id="catalog-img-container">
+                        <img src="https://microbiologysociety.org/static/8fac8143-db6d-4798-a436f3c335e59768/600x400_highestperformance_/C0472116-Stentorprotozoanslightmicrograph.jpg" class="card-img" alt="...">
+                        <div class="card-img-overlay">
+                        <h3 class="card-title">Protist</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'main:homepage' %}">
+                <div class="col">
+                    <div class="card text-bg-dark" id="catalog-img-container">
+                        <img src="https://kidsdiscover.com/wp-content/uploads/2014/11/shutterstock_117154852.jpg" class="card-img" alt="...">
+                        <div class="card-img-overlay">
+                        <h3 class="card-title">Fungi</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'main:homepage' %}">
+                <div class="col">
+                    <div class="card text-bg-dark" id="catalog-img-container">
+                        <img src="https://www.epicgardening.com/wp-content/uploads/2023/09/water-plants.jpeg" class="card-img" alt="...">
+                        <div class="card-img-overlay">
+                        <h3 class="card-title">Plantae</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'main:homepage' %}">
+                <div class="col">
+                    <div class="card text-bg-dark" id="catalog-img-container">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/A_chital_stag_1.JPG" class="card-img" alt="...">
+                        <div class="card-img-overlay">
+                        <h3 class="card-title">Animalia</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'main:homepage' %}">
+                <div class="col">
+                    <div class="card text-bg-dark" id="catalog-img-container">
+                        <img src="https://www.shutterstock.com/shutterstock/videos/1074772442/thumb/3.jpg?ip=x480" class="card-img" alt="...">
+                        <div class="card-img-overlay">
+                        <h3 class="card-title">Random</h5>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock content %}

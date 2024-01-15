@@ -1,0 +1,28 @@
+#catalog-div {
+    padding-top:50px;
+    margin:50px;
+}
+
+#catalog-text-div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#catalog-img-container {
+    max-width: 600px; /* Set your desired maximum width */
+    max-height: 300px; /* Set your desired maximum height */
+    overflow: clip; /* Hide any overflow beyond the specified dimensions */
+    transition: transform 0.3s ease-in-out;
+  }
+
+#catalog-img-container:hover {
+    transform: scale(1.03);
+}
+
+#catalog-img-container img {
+    width: 100%; /* Make sure the image takes up 100% of the container width */
+    height: 100%; /* Make sure the image takes up 100% of the container height */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+}
