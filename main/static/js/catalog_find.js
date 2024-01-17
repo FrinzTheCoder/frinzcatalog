@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
         let htmlString = ''
 
         if(contents.length == 0){
-            document.getElementById("contents-notif").innerHTML = "The content you're not looking for is not found :&lpar;"
+            document.getElementById("contents-notif").innerHTML = "The content you're looking for is not found :&lpar;"
         }
         else{
             document.getElementById("contents-notif").innerHTML = ""
