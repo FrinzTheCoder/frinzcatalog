@@ -1,0 +1,32 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Catalog</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/catalog_page.css' %}">
+{% endblock meta %}
+
+{% block content%}
+    {% include 'common/navbar.html' %}
+    <div id='catalog-page-div'>
+        <h1 id='catalog-text-div'>{{ type }}</h1>
+        <div id='catalog-description-div'>
+            <p id='catalog-text-description'>"{{ description }}"</p>
+        </div>
+        <div class="container">
+            <div class="input-group px-auto">
+                <input type="search" id="input-catalog-name" class="form-control rounded" placeholder="Type some keyword here" aria-label="Search" aria-describedby="search-addon" />
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-4 g-4"  id='card-container'></div>
+        </div>
+        <div class="container">
+            <p id="contents-notif"></p>
+        </div>
+    </div>
+
+    <p id="type" style="display:none">{{type}}</p>
+    <script src="{% static 'js/catalog_find.js' %}"></script>
+{% endblock content %}

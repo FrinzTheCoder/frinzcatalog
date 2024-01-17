@@ -1,6 +1,28 @@
-#catalog-div {
-    padding-top:50px;
+#catalog-page-div {
+    padding-top:30px;
     margin:50px;
+}
+
+#catalog-form-div{
+    padding-inline-start: 13%;
+    padding-inline-end: 13%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#catalog-description-div{
+    padding-left: 15%;
+    padding-right: 15%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    display: flex;
+}
+
+#catalog-text-description{
+    font-style:italic;
+    text-align: center;
 }
 
 #catalog-text-div {
@@ -12,8 +34,8 @@
 
 #catalog-img-container {
     width: 100%;
-    padding-bottom: 50%; /* Adjust this value to set the aspect ratio (height/width) */
-    overflow: hidden; /* Hide any overflow beyond the specified dimensions */
+    padding-bottom: 100%;
+    overflow: hidden;
     transition: transform 0.3s ease-in-out;
   }
 
