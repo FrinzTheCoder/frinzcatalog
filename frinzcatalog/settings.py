@@ -23,9 +23,7 @@ ENVIRONMENT = os.environ.get('DJANGO_ENV', 'development')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-_8$ee5tot&pctsv2jprys#!l^5f%!y^ht#^f0x7k(fvh4xj*h@'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+# Hosts & trusted origins
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ['https://frinzcatalog.falensiazmi.net']
 
