@@ -35,15 +35,16 @@ document.addEventListener("DOMContentLoaded", function(){
             document.getElementById("contents-notif").innerHTML = ""
             contents.forEach((item)=>{
                 htmlString += `
-                <div class="col">
-                    <div class="card text-bg-dark" id="catalog-img-container">
-                        <img src="${item.fields.resource}" class="card-img-top">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title" id="card-content-text">${item.fields.name}</h5>
+                <a href="/content/${item.pk}">
+                    <div class="col">    
+                        <div class="card text-bg-dark" id="catalog-img-container">
+                            <img src="${item.fields.resource}" class="card-img-top">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title" id="card-content-text">${item.fields.name}</h5>
+                            </div>
                         </div>
                     </div>
-                    </div>
-                </div>`
+                </a>`
               })
         }
         document.getElementById("card-container").innerHTML = htmlString

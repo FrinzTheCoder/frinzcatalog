@@ -14,4 +14,5 @@ urlpatterns = [
     path('catalog/random', catalog_random, name='catalog-random'),
     path('catalog/getallbytype/<str:content_type>', catalog_getall_by_type, name='catalog-getall-by-type'),
     path('catalog/<str:content_type>/<str:name>', catalog_find, name='catalog-find'),
+    path('content/<int:id>', content_display, name='content_display')
 ]

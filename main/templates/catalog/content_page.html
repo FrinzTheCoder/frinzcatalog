@@ -1,0 +1,39 @@
+{% extends 'common/base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Catalog</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/content_page.css' %}">
+{% endblock meta %}
+
+{% block content%}
+    {% include 'common/navbar.html' %}
+    <section>
+        <div id='content-page-div' class='container'>
+            <div class="row ">
+                <div class='col-md align-self-center'>
+                    <div class='square-container'>
+                        <img class="square-image" src="{{ content.resource }}" alt="Failed To Load Image">
+                    </div>
+                </div>
+                <div class='col-md'>
+                    <h1 style="text-align: center;">{{ content.name }}</h1>
+                    <br>
+                    <h3 style="font-weight: normal;"><b>Category:</b>&nbsp;{{ content.category }}</h3>
+                    <h3 style="font-weight: normal;"><b>Latin Name:</b>&nbsp;<i>{{ content.latin_name }}</i></h3>
+                    <h3 style="font-weight: normal;"><b>Location Found:</b>&nbsp;{{ content.location_found }}</h3>
+                    <br>
+                    <p><i>{{ content.description }}</i></p>
+                    <button class="btn btn-success" onclick="goBack()">Go Back</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div id='class-section-div'>
+            
+        </div>
+    </section>
+    
+    <script src="{% static 'js/content_page.js' %}"></script>
+{% endblock content %}

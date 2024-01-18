@@ -79,3 +79,9 @@ def type_mapper(content_type):
         return Category.RANDOM
     else:
         pass
+
+def content_display(request, id):
+    if request.method == "GET":
+        content = Content.objects.get(id=id)
+        context = {'content':content}
+        return render(request, 'catalog/content_page.html', context)

@@ -15,7 +15,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+ENVIRONMENT = os.environ.get('DJANGO_ENV', 'development')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -75,9 +75,6 @@ WSGI_APPLICATION = 'frinzcatalog.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-
-ENVIRONMENT = os.environ.get('DJANGO_ENV', 'development')
 
 if ENVIRONMENT == 'production':
     from frinzcatalog.db_prod import *
