@@ -17,6 +17,7 @@ class Tag(models.Model):
 
 class Like(models.Model):
     ip_address = models.CharField(max_length=15)
+    is_like = models.BooleanField(default=False)
 
 class Comment(models.Model):
     comment = models.TextField(default='')
