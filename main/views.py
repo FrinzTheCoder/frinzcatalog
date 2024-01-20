@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 from main.models import *
+from django.db import transaction
 
 def homepage(request):
     return render(request, 'home/main.html')
@@ -85,3 +87,58 @@ def content_display(request, id):
         content = Content.objects.get(id=id)
         context = {'content':content}
         return render(request, 'catalog/content_page.html', context)
+    return HttpResponse("Invalid method", status=405)
+
+def get_like(request, id):
+    if request.method == "GET":
+        client_ip = request.META.get('HTTP_X_FORWARDED_FOR', None) or \
+        request.META.get('HTTP_X_REAL_IP', None) or \
+        request.META.get('REMOTE_ADDR', None)
+        content = Content.objects.get(id=id)
+
+        number_of_likes = content.likes.filter(is_like=True).count()
+        
+        if client_ip != None:
+            filtered_like = content.likes.filter(ip_address=client_ip)
+            if len(filtered_like)!=0:
+                is_like = filtered_like[0].is_like
+            else:
+                is_like = False
+        else:
+            is_like = False
+        payload = {'is_like':is_like, 'number_of_likes':number_of_likes}
+        return JsonResponse(payload, status=200)
+    return HttpResponse("Invalid method", status=405)
+
+@transaction.atomic
+@csrf_exempt
+def content_like(request):
+    if request.method == "POST":
+        # getting the user's IP Address
+        client_ip = request.META.get('HTTP_X_FORWARDED_FOR', None) or \
+        request.META.get('HTTP_X_REAL_IP', None) or \
+        request.META.get('REMOTE_ADDR', None)
+
+        # getting the content id to be liked
+        content_id = int(request.body)
+
+        if client_ip == None: # failed to get user's IP Address
+            return HttpResponse("Failed to get user's IP Address", status=400)
+
+        # get the like from an ip address
+        content = Content.objects.get(id=content_id)
+        like = content.likes.filter(ip_address=client_ip)
+
+        if len(like) == 0:
+            new_like = Like.objects.create(ip_address=client_ip, is_like=True)
+            content.likes.add(new_like)
+            return HttpResponse("Success", status=200)
+        else:
+            like_obj = like[0]
+            if like_obj.is_like == True:
+                like_obj.is_like = False
+            else:
+                like_obj.is_like = True
+            like_obj.save()
+            return HttpResponse("Sucess", status=200)
+    return HttpResponse("Invalid method", status=405)
